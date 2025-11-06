@@ -1,5 +1,7 @@
+import MainComponent from "./component/MainComponent.tsx";
+
 function App() {
-    return <h1 className="text-red-500">Hello World</h1>;
+    return <MainComponent/>;
 }
 
 export default App
