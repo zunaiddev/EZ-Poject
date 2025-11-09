@@ -1,11 +1,12 @@
 import InputField from "./InputField.tsx";
-import Button from "./Button.tsx";
+import Button from "./Buttons/Button.tsx";
 import {useForm} from "react-hook-form";
 import type {FormReq} from "../types/FormReq.ts";
 import TextArea from "./TextArea.tsx";
 import {submitForm} from "../service/apiService.ts";
 import {HttpStatusCode} from "axios";
 import toast from "react-hot-toast";
+import type {FormRes} from "../types/FormRes.ts";
 
 function ContactForm() {
     const {
@@ -14,7 +15,7 @@ function ContactForm() {
     } = useForm<FormReq>();
 
     async function onSubmit(data: FormReq) {
-        const {status, error} = await submitForm(data);
+        const {status, error}: FormRes = await submitForm(data);
 
         if (status === HttpStatusCode.Created) {
             toast.success("Form Submitted!");
@@ -22,7 +23,7 @@ function ContactForm() {
             return;
         }
 
-        toast.error(error.message);
+        toast.error(error?.message || "Something went wrong");
     }
 
     return (

@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "https://vernanbackend.ezlab.in/api"
+    baseURL: "https://vernanbackend.ezlab.in/api/",
+    timeout: 10000
 });
 
 export default API;

@@ -1,11 +1,10 @@
-import ContactUs from "./component/ContactUs.tsx";
-import Home from "./component/Home.tsx";
+import router from "./routes/AppRoutes.tsx";
+import {RouterProvider} from "react-router-dom";
 import {Toaster} from "react-hot-toast";
 
 function App() {
     return <div>
-        <Home/>
-        <ContactUs/>
+        <RouterProvider router={router}/>
         <Toaster/>
     </div>;
 }

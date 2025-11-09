@@ -1,25 +1,19 @@
 import {AxiosError} from "axios";
 import API from "./API.ts";
-import ErrorType from "../types/ErrorType.ts";
 import type {FormReq} from "../types/FormReq.ts";
+import type {FormRes} from "../types/FormRes.ts";
 
-interface FormResponse {
-    data: never | null;
-    status: number | null;
-    error: {
-        type: ErrorType | null;
-        message: string | null;
-    };
-}
+export async function submitForm(data: FormReq): Promise<FormRes> {
+    console.log("data", data);
 
-export async function submitForm(data: FormReq): Promise<FormResponse> {
     try {
-        const response = await API.post("/contact-us", data, {timeout: 10000});
+        const response =
+            await API.post("/contact-us", data);
 
         return {
             data: response.data,
             status: response.status,
-            error: {type: null, message: null},
+            error: null,
         };
     } catch (err) {
         const error = err as AxiosError;
@@ -29,7 +23,7 @@ export async function submitForm(data: FormReq): Promise<FormResponse> {
                 data: null,
                 status: null,
                 error: {
-                    type: ErrorType.SERVER,
+                    type: "SERVER",
                     message: "Request timed out. Please try again.",
                 },
             };
@@ -40,7 +34,7 @@ export async function submitForm(data: FormReq): Promise<FormResponse> {
                 data: null,
                 status: null,
                 error: {
-                    type: ErrorType.INTERNET,
+                    type: "INTERNET",
                     message: "No internet connection or server unreachable.",
                 },
             };
@@ -49,7 +43,7 @@ export async function submitForm(data: FormReq): Promise<FormResponse> {
         return {
             data: null,
             status: error.response?.status || null,
-            error: {type: ErrorType.SERVER, message: "Something went wrong."},
+            error: {type: "SERVER", message: "Something went wrong."},
         };
     }
 }

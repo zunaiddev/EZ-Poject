@@ -1,14 +1,12 @@
 import topRight from "../assets/topRight.svg";
 import bottomLeft from "../assets/bottomLeft.svg";
-import SideImage from "./SideImage.tsx";
-import ContactForm from "./ContactForm.tsx";
-import Container from "./Container.tsx";
-import Navbar from "./Navbar.tsx";
+import SideImage from "../component/SideImage.tsx";
+import ContactForm from "../component/ContactForm.tsx";
+import Container from "../component/Container.tsx";
 
-function ContactUs() {
+function ContactPage() {
     return (
-        <Container>
-            <Navbar/>
+        <Container className="flex justify-center items-center p-5">
             <div className="w-full h-full flex justify-center items-center gap-16 flex-wrap z-40">
                 <p className="w-full max-w-sm min-w-sm">Whether you have an idea, a question, or simply want to
                     explore
@@ -33,4 +31,4 @@ function ContactUs() {
     );
 }
 
-export default ContactUs;
+export default ContactPage;
