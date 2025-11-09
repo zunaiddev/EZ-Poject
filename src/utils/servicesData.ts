@@ -27,7 +27,7 @@ const serviceData = [
         desc: "A brand isn’t just what you see - it’s what you remember, what you carry home, and what you trust. We shape brands that people remember, return to, and fall in love with." +
             "V creates:",
         src: frame1,
-        list: [],
+        list: ["Documentaries", "Corporate Videos", "2D Animation Videos", "3D Animation Videos"],
         images: [branding1, branding2, branding3, branding4],
     },
     {

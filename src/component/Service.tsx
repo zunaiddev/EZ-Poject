@@ -40,7 +40,7 @@ function Service({data}: IProps): JSX.Element {
                 </button>
                 <div className="w-full flex justify-center items-center flex-col md:flex-row">
                     <img src={src} alt="Frame" className="w-sm"/>
-                    <div className="w-full max-w-xl">
+                    <div className="w-full max-w-md">
                         <p className="text-lg font-semibold">
                             {desc}
                         </p>
@@ -53,9 +53,9 @@ function Service({data}: IProps): JSX.Element {
                 </div>
                 <ExploreButton/>
             </div>
-            <FloatingImage src={images[0]} className="right-40 top-1/3 size-24 opacity-70"/>
-            <FloatingImage src={images[1]} className="right-80 size-20 bottom-1/4"/>
-            <FloatingImage src={images[2]} className="right-60 top-1/7 h-26"/>
+            <FloatingImage src={images[0]} className="right-0 md:right-2 lg:right-40 top-1/3 size-24 opacity-70"/>
+            <FloatingImage src={images[1]} className="right-0 md:right-6 lg:right-80 size-20 bottom-1/4"/>
+            <FloatingImage src={images[2]} className="right-0 md:right-10 lg:right-60 top-1/7 h-26"/>
             <FloatingImage src={images[3]} className="left-46 bottom-40 h-18"/>
         </Container>
     );

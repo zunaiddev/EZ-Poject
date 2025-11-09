@@ -12,7 +12,14 @@ function ContactForm() {
     const {
         register,
         handleSubmit, formState: {errors, isSubmitting}, reset
-    } = useForm<FormReq>();
+    } = useForm<FormReq>({
+        defaultValues: {
+            name: "John",
+            email: "john@gmail.com",
+            phone: "+91 9690578859",
+            message: "Hii this is a testing message"
+        }
+    });
 
     async function onSubmit(data: FormReq) {
         const {status, error}: FormRes = await submitForm(data);

@@ -5,6 +5,7 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 
 function Navbar() {
+    const isMobile: boolean = window.innerWidth <= 500;
     const [src, setSrc] = useState(menu);
     const [open, setOpen] = useState(false);
 
@@ -18,7 +19,8 @@ function Navbar() {
             <img src={navLogo} alt="logo" className="w-16"/>
             <div className="flex gap-5 items-center">
                 <nav
-                    className={`flex items-center justify-center gap-5 transform duration-500 ${open ? "translate-x-0 opacity-100" : "translate-x-[120%] opacity-0"}`}>
+                    className={`flex items-center justify-center gap-5 transform duration-500 ${open ? "translate-x-0 opacity-100" : "translate-x-[120%] opacity-0"} 
+                    ${isMobile && "absolute top-full right-2 bg-gray-300 p-2 rounded-2xl flex-col"}`}>
                     <Link to="/" onClick={handleClick}>Home</Link>
                     <Link to="/service" onClick={handleClick}>Services</Link>
                     <Link to="/portfolio" onClick={handleClick}>Portfolio</Link>

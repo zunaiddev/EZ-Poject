@@ -8,7 +8,7 @@ export async function submitForm(data: FormReq): Promise<FormRes> {
 
     try {
         const response =
-            await API.post("/contact-us", data);
+            await API.post("/contact-us/", data);
 
         return {
             data: response.data,
